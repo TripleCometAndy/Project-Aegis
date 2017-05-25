@@ -179,9 +179,15 @@ void ship::handleInput(SDL_Event &e){
 
 }
 
+void ship::handleInputDebug(inputHandler * iH){
+
+	cout << "ship is working" << endl;
+
+}
+
 void ship::handleStateChanges(vector<gameObject *> * objects, uGrid * uniformGrid){
 
-
+	cout << "Beta" << endl;
 
 	string * p = inputs.data();
 	int numInputs = inputs.size();
@@ -255,13 +261,13 @@ void ship::handleStateChanges(vector<gameObject *> * objects, uGrid * uniformGri
 	}
 	int leftCrusher = 0;
 	int rightCrusher = 0;
-	int leftTop = 0;
-	int leftBottom = 0;
-	int rightTop = 0;
-	int rightBottom = 0;
-	int wall = 0;
+	//int leftTop = 0;
+	//int leftBottom = 0;
+	//int rightTop = 0;
+	//int rightBottom = 0;
+	//int wall = 0;
 	int leftMiddle = 0;
-	int rightMiddle = 0;
+	//int rightMiddle = 0;
 	/*
 	vector<hitbox> * leftCrushers = uniformGrid->getName(hitboxes[0], "crushZoneLeft");
 	vector<hitbox> * rightCrushers = uniformGrid->getName(hitboxes[0], "crushZoneRight");
@@ -409,6 +415,8 @@ void ship::handleStateChanges(vector<gameObject *> * objects, uGrid * uniformGri
 }
 
 void ship::enactStateChanges(vector<gameObject *> * objects, SDL_Renderer * renderer, uGrid * uniformGrid){
+
+	cout << "Derp" << endl;
 
 	move(futureX - x, futureY - y);
 

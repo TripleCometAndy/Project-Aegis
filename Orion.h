@@ -2,13 +2,13 @@
 #include <iostream>
 #include <vector>
 #include <list>
-//////
 #include <fstream>
 #include <sstream>
 //#include <wtypes.h>
-
+////////////////////////////////////
 #include <cmath>
 #include <ctime>
+#include <X11/Xlib.h>
 
 #ifndef _UGRID
 #define _UGRID
@@ -17,6 +17,11 @@
 
 #include "lib/sdlhandlers/sdlHandlers/sdlHandlers.h"
 #include "lib/timer/timer/Timer.h"
+
+#ifndef _INPUTHANDLER
+#define _INPUTHANDLER
+#include "lib/inputhandler/inputHandler/inputHandler.h"
+#endif
 
 #ifndef _GAMEOBJECT
 #define _GAMEOBJECT
@@ -30,7 +35,7 @@
 #include "lib/enactallstatechanges/enactAllStateChanges/enactAllStateChanges.h"
 #include "lib/renderall/renderAll/renderAll.h"
 
-////
+///////
 #define PI 3.14159265
 
 //////////
@@ -54,7 +59,9 @@ public:
 	background(int, int, int, int, string, string, string, SDL_Renderer *, uGrid * uniformGrid);
 
 	void handleInput(SDL_Event& e);
+	void handleInputDebug(inputHandler * iH);
 	void handleStateChanges(vector<gameObject *> *, uGrid *);
+
 	void enactStateChanges(vector <gameObject *> *, SDL_Renderer * renderer, uGrid *);
 
 };
@@ -106,13 +113,14 @@ public:
 	ship(int, int, int, int, string, string, string, SDL_Renderer *, uGrid * uniformGrid, double);
 
 	void handleInput(SDL_Event& e);
+	void handleInputDebug(inputHandler * iH);
 	void handleStateChanges(vector<gameObject *> *, uGrid *);
 	void enactStateChanges(vector<gameObject *> *, SDL_Renderer * renderer, uGrid *);
 	bool exploding(uGrid * uniformGrid);
 
 };
 
-
+////
 class Camera{
 
 private:
@@ -234,3 +242,5 @@ public:
 };
 
 void renderAll(vector<gameObject *> gameObjects, SDL_Renderer * renderer);
+int loop(int FPS, int screenWidth, int screenHeight, bool fullScreen);
+int loopWrite(int FPS, int screenWidth, int screenHeight, bool fullScreen);

@@ -100,10 +100,20 @@ void background::handleInput(SDL_Event& e){
 
 }
 
+void background::handleInputDebug(inputHandler * iH){
+
+
+	cout << "background is working" << endl;
+
+
+}
+
+
+
 void background::handleStateChanges(vector<gameObject *> * objects, uGrid * uniformGrid){
 
 
-
+	
 
 }
 
